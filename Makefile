@@ -3,8 +3,9 @@ AS_FLAGS := -f elf64
 NAME := libasm.a
 BUILD_DIR ?= .build
 
-SRCS := 
-OBJS := $(addprefix $(BUILD_DIR)/, $(SRCS:.c=.o))
+VPATH = src
+SRCS := ft_strlen.s
+OBJS := $(addprefix $(BUILD_DIR)/, $(SRCS:.s=.o))
 DEPS := $(OBJS:.o=.d)
 
 
@@ -17,7 +18,7 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(BUILD_DIR)/%.o: %.s | $(BUILD_DIR)
-	$(AS) $(AS_FLAGS) -o $@ -c $<
+	$(AS) $(AS_FLAGS) -o $@ $<
 
 clean:
 	rm -f $(OBJS) $(DEPS)
