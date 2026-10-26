@@ -1,3 +1,4 @@
 libasmTester
 libasm.a
 .build/
+*.out
