@@ -6,4 +6,4 @@ instruction_set = "x86-64"
 compiler = "nasm"
 diagnostics = true
 default_diagnostics = true
-compile_flags_txt = ["-f", "elf64"]
+compile_flags_txt = ["-f", "elf64", ">", "/dev/null"]
