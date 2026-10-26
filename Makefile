@@ -4,7 +4,9 @@ NAME := libasm.a
 BUILD_DIR ?= .build
 
 VPATH = src
-SRCS := ft_strlen.s
+SRCS := ft_strlen.s \
+		ft_strcpy.s
+
 OBJS := $(addprefix $(BUILD_DIR)/, $(SRCS:.s=.o))
 DEPS := $(OBJS:.o=.d)
 
