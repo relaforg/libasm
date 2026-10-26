@@ -7,7 +7,8 @@ VPATH = src
 SRCS := ft_strlen.s \
 		ft_strcpy.s \
 		ft_strcmp.s \
-		ft_write.s
+		ft_write.s \
+		ft_read.s
 
 OBJS := $(addprefix $(BUILD_DIR)/, $(SRCS:.s=.o))
 DEPS := $(OBJS:.o=.d)
