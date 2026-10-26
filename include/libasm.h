@@ -12,4 +12,6 @@ ssize_t	ft_read(int fd, void *buf, size_t count);
 char	*ft_strdup(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
 
+int		ft_atoi_base(char *str, char *base);
+
 #endif
