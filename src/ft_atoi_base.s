@@ -4,27 +4,43 @@ section .text
 	ft_atoi_base:
 		.validate_base:
 			mov r10, 0
-			.loop:
-				mov bl, [rsi + r10]
-
-				cmp bl, 43
+			movzx ebx, byte [rsi + r10]
+			.base_loop:
+				; Check for forbidden chars
+				cmp bl, 43 ; '+'
 				je .error
-				cmp bl, 45
+				cmp bl, 45 ; '-'
+				je .error
+				cmp bl, 8 ; '\b'
+				je .error
+				cmp bl, 9 ; '\t'
+				je .error
+				cmp bl, 10 ; '\n'
+				je .error
+				cmp bl, 11 ; '\v'
+				je .error
+				cmp bl, 12 ; '\f'
+				je .error
+				cmp bl, 13 ; '\r'
 				je .error
 
-				mov r11, 0
+				; check for ducplicate chars
+				mov r11, r10
 				.diff_loop:
-					mov cl, [rsi + r11]
+					inc r11
+					movzx ecx, byte [rsi + r11]
 					cmp bl, cl
 					je .error
-					
-					inc r11
-					cmp r11, r10
-					jb .diff_loop
+
+					cmp cl, 0
+					jne .diff_loop
 
 				inc r10
+				movzx ebx, byte [rsi + r10]
 				cmp bl, 0
-				jne .loop
+				jne .base_loop
+
+			; Check if base size is greater than 1
 			cmp r10, 1
 			jle .error
 

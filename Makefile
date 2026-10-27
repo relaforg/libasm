@@ -27,9 +27,11 @@ TEST_BIN := $(BUILD_DIR)/test
 GDB_BREAK ?= main
 GDB_FLAGS := -q -tui \
 			 -ex 'set disassembly-flavor intel' \
+			 -ex 'layout asm' \
 			 -ex 'layout regs' \
 			 -ex 'break $(GDB_BREAK)' \
-			 -ex 'run'
+			 -ex 'run' \
+			 -ex 'set step-mode on'
 
 all: $(NAME)
 
