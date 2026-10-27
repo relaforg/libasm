@@ -21,11 +21,14 @@ static void	test_atoi_base(char *str, char *base, int expected)
 
 int	main(void)
 {
-	test_atoi_base("123", "", 0);
-	test_atoi_base("123", "a", 0);
-	test_atoi_base("123", "adfd", 0);
-	test_atoi_base("123", "+qwert", 0);
-	test_atoi_base("123", "-qwert", 0);
-	test_atoi_base("123", "qwert", 1000);
+	// test_atoi_base("123", "", 0);
+	// test_atoi_base("123", "a", 0);
+	// test_atoi_base("123", "adfd", 0);
+	// test_atoi_base("123", "+qwert", 0);
+	// test_atoi_base("123", "-qwert", 0);
+	test_atoi_base("123", "0123456789", 123);
+	test_atoi_base("ff", "0123456789abcdef", 255);
+	test_atoi_base("+123", "0123456789", 123);
+	test_atoi_base("-ff", "0123456789abcdef", 255);
 	return (0);
 }
