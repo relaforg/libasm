@@ -26,9 +26,10 @@ int	main(void)
 	// test_atoi_base("123", "adfd", 0);
 	// test_atoi_base("123", "+qwert", 0);
 	// test_atoi_base("123", "-qwert", 0);
-	test_atoi_base("123", "0123456789", 123);
-	test_atoi_base("ff", "0123456789abcdef", 255);
-	test_atoi_base("+123", "0123456789", 123);
-	test_atoi_base("-ff", "0123456789abcdef", 255);
+	// test_atoi_base("123", "0123456789", 123);
+	// test_atoi_base("ff", "0123456789abcdef", 255);
+	// test_atoi_base("+123", "0123456789", 123);
+	test_atoi_base("-ffz", "0123456789abcdef", -255);
+	test_atoi_base("", "01", 0);
 	return (0);
 }

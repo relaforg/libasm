@@ -8,5 +8,5 @@ section .text
 			mov al, [rdi + r10]
 			cmp al, 0
 			jne .loop
-			mov rax, r10
-			ret
+		mov rax, r10
+		ret

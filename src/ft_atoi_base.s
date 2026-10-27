@@ -12,7 +12,7 @@ section .text
 			je .error
 			cmp bl, 45 ; '-'
 			je .error
-			cmp bl, 8 ; '\b'
+			cmp bl, 32 ; ' '
 			je .error
 			cmp bl, 9 ; '\t'
 			je .error
@@ -46,7 +46,6 @@ section .text
 		jle .error
 
 		; atoi
-
 		push rdi
 		mov rdi, rsi
 		call ft_strlen
@@ -54,10 +53,33 @@ section .text
 		mov rax, 0
 		pop rdi
 
+		mov r13, 0
 		mov r10, 0
 		movzx ebx, byte [rdi + r10]
-		.atoi_loop:
+		cmp bl, 0
+		je .ret
 
+		cmp bl, 43
+		je .plus_sign
+
+		cmp bl, 45
+		je .minus_sign
+
+		jmp .atoi_loop
+
+		.plus_sign:
+			inc r10
+			movzx ebx, byte [rdi + r10]
+			jmp .atoi_loop
+
+		
+		.minus_sign:
+			inc r10
+			movzx ebx, byte [rdi + r10]
+			mov r13, 1
+			jmp .atoi_loop
+
+		.atoi_loop:
 			mov r11, 0
 			.find_loop:
 				movzx ecx, byte [rsi + r11]
@@ -68,7 +90,7 @@ section .text
 				inc r11
 				cmp cl, 0
 				jne .find_loop
-				je .ret
+				je .end
 				
 			.atoi_add:
 				imul rax, r12
@@ -79,7 +101,17 @@ section .text
 			cmp bl, 0
 			jne .atoi_loop
 
-		jmp .ret
+		.end:
+			cmp r13, 1
+			je .neg
+
+			jmp .ret
+
+			.neg:
+				neg rax
+				jo .error
+				jmp .ret
+
 
 		.error:
 			mov rax, 0
