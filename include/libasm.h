@@ -10,15 +10,16 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-size_t	ft_strlen(const char *s);
-char	*ft_strcpy(char *dst, const char *src);
-int		ft_strcmp(const char *s1, const char *s2);
-ssize_t	ft_write(int fd, const void *buf, size_t count);
-ssize_t	ft_read(int fd, void *buf, size_t count);
-char	*ft_strdup(const char *s);
-void	*ft_calloc(size_t nmemb, size_t size);
+size_t			ft_strlen(const char *s);
+char			*ft_strcpy(char *dst, const char *src);
+int				ft_strcmp(const char *s1, const char *s2);
+ssize_t			ft_write(int fd, const void *buf, size_t count);
+ssize_t			ft_read(int fd, void *buf, size_t count);
+char			*ft_strdup(const char *s);
+void			*ft_calloc(size_t nmemb, size_t size);
 
-int		ft_atoi_base(char *str, char *base);
-void	ft_list_push_front(t_list **begin_list, void *data);
+int				ft_atoi_base(char *str, char *base);
+void			ft_list_push_front(t_list **begin_list, void *data);
+unsigned int	ft_list_size(t_list *begin_list);
 
 #endif

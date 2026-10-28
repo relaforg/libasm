@@ -16,7 +16,8 @@ OBJS := $(addprefix $(BUILD_DIR)/, $(SRCS:.s=.o))
 DEPS := $(OBJS:.o=.d)
 
 BONUS_SRCS := ft_atoi_base.s \
-			  ft_list_push_front.s
+			  ft_list_push_front.s \
+			  ft_list_size.s
 
 BONUS_OBJS := $(addprefix $(BUILD_DIR)/, $(BONUS_SRCS:.s=.o))
 BONUS_DEPS := $(BONUS_OBJS:.o=.d)
