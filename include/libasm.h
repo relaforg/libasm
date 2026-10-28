@@ -21,5 +21,6 @@ void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_atoi_base(char *str, char *base);
 void			ft_list_push_front(t_list **begin_list, void *data);
 unsigned int	ft_list_size(t_list *begin_list);
+void			ft_list_sort(t_list **begin_list, int (*cmp)());
 
 #endif
